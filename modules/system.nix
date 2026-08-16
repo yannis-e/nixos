@@ -19,11 +19,24 @@
     allowedUDPPorts = [ 53317 ]; # LocalSend UDP
   };
 
-  # Swap configuration for high-memory workloads
-  swapDevices = [ {
-    device = "/var/lib/swapfile";
-    size = 8192; # 8 GB Swap
-  } ];
+  # Nix daemon settings & experimental features
+  nix.settings = {
+    auto-optimise-store = true;
+    experimental-features = [ "nix-command" "flakes" ];
+  };
+
+  # Automatic Garbage Collection
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 14d";
+  };
+
+  # Dynamic ZRAM for high-memory workloads
+  zramSwap = {
+    enable = true;
+    memoryPercent = 50; # Uses up to 50% of total RAM as compressed swap
+  };
 
   # Time, locale, and console keymap
   time.timeZone = "Europe/Berlin";
@@ -36,7 +49,10 @@
   # Audio and peripheral services
   services.pipewire = {
     enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
     pulse.enable = true;
+    jack.enable = true; # Improves compatibility for Linux audio production
   };
   services.libinput.enable = true;
   services.udisks2.enable = true;
@@ -44,9 +60,6 @@
 
   # Udev rules for hardware programming
   services.udev.packages = [ pkgs.openocd ];
-  services.udev.extraRules =
-    let rulePath = /home/yannis/.arduino15/packages/STMicroelectronics/tools/xpack-openocd/0.12.0-6/openocd/contrib/60-openocd.rules;
-    in if builtins.pathExists rulePath then builtins.readFile rulePath else "";
 
   # Dynamic linker support for non-nix binaries
   programs.nix-ld = {
