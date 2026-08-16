@@ -42,6 +42,7 @@
     bluetui
     wiremix
     xp-pen-deco-01-v2-driver
+    impala
 
     # CLI development & system monitoring tools
     btop

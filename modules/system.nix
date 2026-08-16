@@ -11,7 +11,24 @@
 
   # Network and hostname
   networking.hostName = "nixos";
-  networking.networkmanager.enable = true;
+  networking.networkmanager = {
+    enable = true;
+    wifi.backend = "iwd"; # Configures NetworkManager to use iwd instead of wpa_supplicant
+  };
+  
+  # iwd configuration
+  networking.wireless.iwd = {
+    enable = true;
+    settings = {
+      IPv6 = {
+        Enable = true;
+      };
+      Settings = {
+        AutoConnect = true;
+      };
+    };
+  };
+
   networking.firewall = {
     enable = true;
     trustedInterfaces = [ "eno1" "wlo1" ];
