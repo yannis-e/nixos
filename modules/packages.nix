@@ -6,6 +6,15 @@
     enable = true;
     remotePlay.openFirewall = true;
     dedicatedServer.openFirewall = true;
+
+    # Wrap Steam so all games automatically inherit nvidia-offload environment variables
+    package = pkgs.steam.override {
+      extraEnv = {
+        __NV_PRIME_RENDER_OFFLOAD = "1";
+        __GLX_VENDOR_LIBRARY_NAME = "nvidia";
+        __VK_LAYER_NV_optimus = "NVIDIA_only";
+      };
+    };
   };
 
   # Gamemode support
@@ -15,10 +24,13 @@
   environment.systemPackages = with pkgs; [
     # Desktop environment & UI tools
     alacritty
+    brightnessctl
     dmenu
     feh
     i3blocks
+    maim
     xclip
+    playerctl
 
     # File management & compression
     pcmanfm
@@ -31,31 +43,32 @@
     wiremix
     xp-pen-deco-01-v2-driver
 
-    # CLI development tools
+    # CLI development & system monitoring tools
+    btop
+    fzf
+    gcc
     git
     github-cli
     jdk
-    gcc
-    python3
+    neovim
     nodejs
     pnpm
-    neovim
+    python3
     wget
 
     # Desktop productivity & engineering
     arduino-ide
-    vscodium
     blender
     kdePackages.kate
     kdePackages.kdenlive
-    orca-slicer
-    sunvox
     kicad
     krita
+    orca-slicer
+    vscodium
 
     # Browsers & communication
-    librewolf
     floorp-bin
+    librewolf
     localsend
     vesktop
 
