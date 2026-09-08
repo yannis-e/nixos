@@ -55,7 +55,8 @@
     nodejs
     pnpm
     python3
-    wget
+    wget   
+    spotify    
 
     # Desktop productivity & engineering
     arduino-ide
@@ -66,6 +67,7 @@
     krita
     orca-slicer
     vscodium
+    mixxx
 
     # Browsers & communication
     floorp-bin

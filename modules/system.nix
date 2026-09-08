@@ -11,15 +11,16 @@
 
   # Network and hostname
   networking.hostName = "nixos";
-  networking.networkmanager = {
-    enable = true;
-    wifi.backend = "iwd"; # Configures NetworkManager to use iwd instead of wpa_supplicant
-  };
+  networking.wireless.enable = false;
+  networking.networkmanager.enable = false;
   
   # iwd configuration
   networking.wireless.iwd = {
     enable = true;
     settings = {
+      General = {
+        EnableNetworkConfiguration = true;
+      };
       IPv6 = {
         Enable = true;
       };
@@ -71,9 +72,11 @@
     pulse.enable = true;
     jack.enable = true; # Improves compatibility for Linux audio production
   };
+  security.rtkit.enable = true;
   services.libinput.enable = true;
   services.udisks2.enable = true;
   services.tlp.enable = true;
+
 
   # Udev rules for hardware programming
   services.udev.packages = [ pkgs.openocd ];
