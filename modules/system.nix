@@ -13,6 +13,7 @@
   networking.hostName = "nixos";
   networking.wireless.enable = false;
   networking.networkmanager.enable = false;
+  services.resolved.enable = true;
   
   # iwd configuration
   networking.wireless.iwd = {
