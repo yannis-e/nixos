@@ -20,6 +20,8 @@
     settings = {
       General = {
         EnableNetworkConfiguration = true;
+        AddressRandomization = "none"; # Verhindert den MAC-Wechsel
+        AddressRandomizationRange = "full"; 
       };
       IPv6 = {
         Enable = true;
