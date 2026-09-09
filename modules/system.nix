@@ -21,14 +21,19 @@
     settings = {
       General = {
         EnableNetworkConfiguration = true;
-        AddressRandomization = "none"; # Verhindert den MAC-Wechsel
-        AddressRandomizationRange = "full"; 
+        # Tell iwd to use systemd-resolved for DNS
+        NameResolvingService = "systemd";
+        # Correct option to disable MAC randomization
+        AddressRandomization = "disabled"; 
       };
       IPv6 = {
-        Enable = true;
+        Enabled = true;
       };
       Settings = {
         AutoConnect = true;
+      };
+      DriverQuirks = {
+        PowerSaveDisable = "*";
       };
     };
   };

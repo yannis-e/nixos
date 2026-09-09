@@ -42,12 +42,15 @@
     # Use modern production package
     package = config.boot.kernelPackages.nvidiaPackages.production;
 
-    # Hybrid GPU Offloading
+    # Hybrid GPU Configuration
     prime = {
       offload = {
-        enable = true;
-        enableOffloadCmd = true; # Allows launching apps via 'nvidia-offload <app>'
+        enable = false;
+        enableOffloadCmd = false;
       };
+  
+      sync.enable = true;
+
       amdgpuBusId = "PCI:6:0:0";
       nvidiaBusId = "PCI:1:0:0";
     };

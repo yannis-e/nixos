@@ -1,11 +1,15 @@
 { pkgs, ... }:
 
 {
+  # notification daemon
+  services.dunst.enable = true;
+
   # X11 Window Manager & Display Manager
   services.xserver.enable = true;
   services.xserver.windowManager.i3.enable = true;
   services.xserver.xkb.layout = "de";
   services.displayManager.ly.enable = true;
+  services.autorandr.enable = true;
 
   # Picom Compositor with blur and transparency rules
   services.picom = {
