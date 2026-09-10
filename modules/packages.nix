@@ -28,7 +28,7 @@
 
   # --- Thunar (Trash, USB Auto-mounting, Settings & Thumbnails) ---
   programs.thunar.enable = true;
-  programs.thunar.plugins = with pkgs.xfce; [
+  programs.thunar.plugins = with pkgs; [
     thunar-archive-plugin
     thunar-volman
   ];
@@ -57,8 +57,6 @@
 
     # --- File Management & System Tools ---
     stow                      # Symlink farm manager (dotfiles)
-    xfce.thunar               # Lightweight, full-featured GUI file manager (replaces pcmanfm)
-    xfce.tumbler              # Thumbnail service for Thunar
     unzip                     # Extraction tool for zip archives
 
     # --- Audio, Hardware & Drivers ---
@@ -66,6 +64,8 @@
     bluetui                   # TUI for Bluetooth management
     impala                    # TUI Wi-Fi manager
     pavucontrol               # Graphical audio mixer & sink switcher (replaces wiremix)
+    autorandr
+    arandr
 
     # --- Development Tools & Runtimes ---
     gcc                       # C/C++ compiler collection
@@ -102,7 +102,7 @@
     librewolf                 # Hardened Firefox fork
     localsend                 # Open-source local file sharing
     vesktop                   # Custom Discord client with Vencord
-    thunderbird                    # Email client
+    thunderbird               # Email client
 
     # --- Game Launchers ---
     heroic                    # Launcher for Epic, GOG, and Prime Gaming

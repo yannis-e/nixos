@@ -25,12 +25,18 @@
         NameResolvingService = "systemd";
         # Correct option to disable MAC randomization
         AddressRandomization = "disabled"; 
+        # Lower roaming aggressiveness to prevent connection drops
+        RoamThreshold = -80;
+        RoamThreshold5GHz = -75;
       };
       IPv6 = {
         Enabled = true;
       };
       Settings = {
         AutoConnect = true;
+      };
+      Scan = {
+        DisableDualBandScan = true; 
       };
       DriverQuirks = {
         PowerSaveDisable = "*";
@@ -83,8 +89,17 @@
   security.rtkit.enable = true;
   services.libinput.enable = true;
   services.udisks2.enable = true;
-  services.tlp.enable = true;
 
+  # TLP configuration - Customized to prevent Wi-Fi power drops
+  services.tlp = {
+    enable = true;
+    settings = {
+      WIFI_PWR_ON_AC = "off";
+      WIFI_PWR_ON_BAT = "off";
+      # Exclude Wi-Fi interface from PCI autosuspend
+      RUNTIME_PM_EXCLUDE = "wlo1";
+    };
+  };
 
   # Udev rules for hardware programming
   services.udev.packages = [ pkgs.openocd ];
