@@ -89,7 +89,7 @@
   };
 
   services.udev.extraRules = ''
-    b ACTION=="change", SUBSYSTEM=="drm", TAG+="systemd", ENV{SYSTEMD_WANTS}="autorandr-hotplug.service"
+    ACTION=="change", SUBSYSTEM=="drm", TAG+="systemd", ENV{SYSTEMD_WANTS}="autorandr-hotplug.service"
   '';
 
   systemd.services.autorandr-hotplug = {

@@ -94,6 +94,8 @@
     krita                     # Digital painting program
     mixxx                     # Open-source DJ software
     orca-slicer               # 3D printing slicer
+    puredata
+    plugdata
 
     # --- Productivity & Communication ---
     vscodium                  # Telemetry-free VS Code build
