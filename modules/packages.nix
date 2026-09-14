@@ -42,18 +42,18 @@
 
   environment.systemPackages = with pkgs; [
 
-    # --- Desktop, Window Manager & Compositing Utilities ---
+    # --- Desktop, Window Manager & Compositing Utilities (Wayland / Hyprland) ---
     alacritty                 # GPU-accelerated terminal emulator
     brightnessctl             # Screen brightness control
-    dmenu                     # Dynamic menu launcher for X11
+    rofi-wayland              # Wayland launcher (dmenu replacement)
     dunst                     # Desktop notification daemon (lightweight)
-    feh                       # Lightweight image viewer & wallpaper setter
-    i3blocks                  # Modular status bar for i3/sway
-    i3lock-color              # Highly customizable i3 screen locker
-    maim                      # Command-line screenshot utility
-    picom                     # X11 compositor (prevents tearing, enables transparency)
+    hyprpaper                 # Wayland wallpaper daemon (feh replacement)
+    hyprlock                  # Wayland screen locker (i3lock-color replacement)
+    grim                      # Wayland screenshot tool (maim replacement)
+    slurp                     # Region selector for screenshots
+    wl-clipboard              # Wayland clipboard management (xclip replacement)
     playerctl                 # Media player CLI controller
-    xclip                     # X11 clipboard management
+    wlr-randr                 # Wayland display resolution tool (arandr replacement)
 
     # --- File Management & System Tools ---
     stow                      # Symlink farm manager (dotfiles)
@@ -63,9 +63,7 @@
     alsa-utils                # ALSA audio control utilities (alsamixer)
     bluetui                   # TUI for Bluetooth management
     impala                    # TUI Wi-Fi manager
-    pavucontrol               # Graphical audio mixer & sink switcher (replaces wiremix)
-    autorandr
-    arandr
+    pavucontrol               # Graphical audio mixer & sink switcher
 
     # --- Development Tools & Runtimes ---
     gcc                       # C/C++ compiler collection

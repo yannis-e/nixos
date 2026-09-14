@@ -33,23 +33,23 @@
 
     # Power management (Crucial for laptop battery life during PRIME offload)
     powerManagement.enable = true;
-    powerManagement.finegrained = false;
+    powerManagement.finegrained = true; # Allows NVIDIA GPU to sleep when offloaded
 
-    # Use proprietary driver (recommended for Turing and older; set to true if Ampere/Ada GTX 16xx or newer)
+    # Use proprietary driver (set open = true if on Turing or newer RTX 20xx+)
     open = false;
     nvidiaSettings = true;
 
     # Use modern production package
     package = config.boot.kernelPackages.nvidiaPackages.production;
 
-    # Hybrid GPU Configuration
+    # Hybrid GPU Configuration for Wayland / Hyprland
     prime = {
       offload = {
-        enable = false;
-        enableOffloadCmd = false;
+        enable = true;
+        enableOffloadCmd = true; # Provides `nvidia-offload` helper command
       };
-  
-      sync.enable = true;
+      
+      sync.enable = false; # MUST be false for Hyprland / Wayland
 
       amdgpuBusId = "PCI:6:0:0";
       nvidiaBusId = "PCI:1:0:0";

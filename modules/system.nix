@@ -11,42 +11,19 @@
 
   # Network and hostname
   networking.hostName = "nixos";
-  networking.wireless.enable = false;
-  networking.networkmanager.enable = false;
-  services.resolved.enable = true;
   
-  # iwd configuration
-  networking.wireless.iwd = {
+  # Enable NetworkManager and systemd-resolved
+  networking.networkmanager = {
     enable = true;
-    settings = {
-      General = {
-        EnableNetworkConfiguration = true;
-        # Tell iwd to use systemd-resolved for DNS
-        NameResolvingService = "systemd";
-        # Correct option to disable MAC randomization
-        AddressRandomization = "disabled"; 
-        # Lower roaming aggressiveness to prevent connection drops
-        RoamThreshold = -80;
-        RoamThreshold5GHz = -75;
-      };
-      IPv6 = {
-        Enabled = true;
-      };
-      Settings = {
-        AutoConnect = true;
-      };
-      Scan = {
-        DisableDualBandScan = true; 
-      };
-      DriverQuirks = {
-        PowerSaveDisable = "*";
-      };
-    };
+    # Tell NetworkManager to use systemd-resolved for DNS
+    dns = "systemd-resolved";
+    # Disable MAC address randomization to match your previous iwd behavior
+    wifi.macAddressRandomization = false;
   };
+  services.resolved.enable = true;
 
   networking.firewall = {
     enable = true;
-    trustedInterfaces = [ "eno1" "wlo1" ];
     allowedTCPPorts = [ 53317 ]; # LocalSend TCP
     allowedUDPPorts = [ 53317 ]; # LocalSend UDP
   };
