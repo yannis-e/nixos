@@ -15,10 +15,18 @@
   # Enable NetworkManager and systemd-resolved
   networking.networkmanager = {
     enable = true;
-    # Tell NetworkManager to use systemd-resolved for DNS
     dns = "systemd-resolved";
-    # Disable MAC address randomization to match your previous iwd behavior
-    wifi.macAddressRandomization = false;
+    wifi.scanRandMacAddress = false;
+
+    settings = {
+      device = {
+        "wifi.scan-rand-mac-address" = false;
+      };
+      connection = {
+        "wifi.cloned-mac-address" = "permanent";
+        "ethernet.cloned-mac-address" = "permanent";
+      };
+    };
   };
   services.resolved.enable = true;
 

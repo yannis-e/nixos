@@ -42,18 +42,18 @@
 
   environment.systemPackages = with pkgs; [
 
-    # --- Desktop, Window Manager & Compositing Utilities (Wayland / Hyprland) ---
+    # --- Desktop, Window Manager & Compositing Utilities ---
     alacritty                 # GPU-accelerated terminal emulator
     brightnessctl             # Screen brightness control
-    rofi-wayland              # Wayland launcher (dmenu replacement)
+    rofi                      # Wayland launcher (replaced rofi-wayland)
     dunst                     # Desktop notification daemon (lightweight)
-    hyprpaper                 # Wayland wallpaper daemon (feh replacement)
-    hyprlock                  # Wayland screen locker (i3lock-color replacement)
-    grim                      # Wayland screenshot tool (maim replacement)
+    hyprpaper                 # Wayland wallpaper daemon
+    hyprlock                  # Wayland screen locker
+    grim                      # Wayland screenshot tool
     slurp                     # Region selector for screenshots
-    wl-clipboard              # Wayland clipboard management (xclip replacement)
+    wl-clipboard              # Wayland clipboard management
     playerctl                 # Media player CLI controller
-    wlr-randr                 # Wayland display resolution tool (arandr replacement)
+    wlr-randr                 # Wayland display resolution tool
 
     # --- File Management & System Tools ---
     stow                      # Symlink farm manager (dotfiles)
