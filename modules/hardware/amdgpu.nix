@@ -34,7 +34,7 @@ in
     nixpkgs.config.hipSupport = true;
     environment = {
       sessionVariables = {
-        # Increase AMD's shader cache size to xGB
+        # Increase AMD's shader cache size to xGB 
         MESA_SHADER_CACHE_MAX_SIZE = "12G";
       };
       systemPackages = [
