@@ -27,6 +27,13 @@ in
         Setting to < 1 will also enable quiet boot.
       '';
     };
+    cfg.core.limine.bootWin = mkOption {
+      type = types.bool;
+      default = false;
+      description = ''
+        Whether Windows is installed and should be added to the Limine menu.
+      '';
+    };
   };
   config = {
     boot = {
@@ -39,19 +46,19 @@ in
           maxGenerations = 8;
           style = {
             wallpaperStyle = "centered";
-            wallpapers = map (file: "${inputs.walls}/images/${file}") [
-              "fuji.jpg"
-              "cherry-blossom.jpg"
-              "clouds.jpg"
-              "austria_landscape.jpg"
-              "pink_flowers.jpg"
-              "wallhaven-9oxkwk_3840x2160.jpg"
-              "wallhaven-28v3mm_3840x2160.jpg"
-              "wallhaven-rqy1mm.jpg"
-              "wallhaven-og39mm.jpg"
-              "wallhaven-21dlrg.jpg"
-              "norway-lofoten-island.jpg"
-            ];
+            wallpapers =
+              let
+                imagesDir = "${inputs.walls}/images";
+                files = builtins.attrNames (builtins.readDir imagesDir);
+              in
+                map
+                  (file: "${imagesDir}/${file}")
+                  (builtins.filter
+                    (file:
+                      builtins.match ".*\\.(jpg|jpeg|png|webp)$" file != null
+                    )
+                    files
+                  );
             interface = {
               resolution = "max";
               helpHidden = true;
@@ -67,11 +74,13 @@ in
               foreground = "B9C1D6";
             };
           };
-          extraEntries = ''
-            /Windoesn't
-                protocol: efi
-                path: boot():/EFI/Microsoft/Boot/bootmgfw.efi
-          '';
+          extraEntries = lib.optionalString
+            config.cfg.core.limine.bootWin
+            ''
+              /Windows
+                  protocol: efi
+                  path: boot():/EFI/Microsoft/Boot/bootmgfw\.efi
+            '';
           extraConfig = mkIf (config.cfg.core.limine.timeout < 1) ''
             quiet: yes
           '';

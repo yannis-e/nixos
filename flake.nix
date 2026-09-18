@@ -10,7 +10,7 @@
     };
 
     walls = {
-      url = "gitlab:fazzi/walls";
+      url = "github:yannis-e/walls";
       flake = false;
       };
 

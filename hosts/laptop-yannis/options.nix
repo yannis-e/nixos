@@ -5,7 +5,10 @@
       kernel.type = "latest";
       isLaptop = true;
       keyLayout = "de";
-      limine.timeout = 5;
+      limine = {
+        timeout = 3;
+        bootWin = false;
+      };
       networkmanager.enable = true;
     };
 

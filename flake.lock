@@ -689,17 +689,17 @@
     "walls": {
       "flake": false,
       "locked": {
-        "lastModified": 1787250691,
-        "narHash": "sha256-tiFsPu3h1g6AFa2r4y8YpNkqp+L9AZoL+T8qFhvk2KY=",
-        "owner": "fazzi",
+        "lastModified": 1789720988,
+        "narHash": "sha256-K3kgNHdKByVw0QJXc/2irckBWsk656Bg6IxLP4Cd/0A=",
+        "owner": "yannis-e",
         "repo": "walls",
-        "rev": "fe0bb9e42840603c19421a411417bc425a795f40",
-        "type": "gitlab"
+        "rev": "02f069edc4fed9638c01d2408764526a585e9f0d",
+        "type": "github"
       },
       "original": {
-        "owner": "fazzi",
+        "owner": "yannis-e",
         "repo": "walls",
-        "type": "gitlab"
+        "type": "github"
       }
     },
     "xdph": {
