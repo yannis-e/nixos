@@ -41,6 +41,7 @@
         enable = true;
         notification.enable = true;
       };
+      hyprpaper.enable = true;
     };
 
     programs = {

@@ -36,6 +36,11 @@
     { self, nixpkgs, hjem, ... }@inputs:
     let
       inherit (nixpkgs) lib;
+      inherit (lib) packagesFromDirectoryRecursive callPackageWith;
+
+      # all my systems are x86_64-linux
+      system = "x86_64-linux";
+      pkgs = inputs.nixpkgs.legacyPackages.${system};
     in
     {
       lib = import ./lib {
@@ -49,5 +54,10 @@
         import ./hosts {
           inherit self inputs lib;
         };
+
+      packages.${system} = packagesFromDirectoryRecursive {
+        callPackage = callPackageWith (pkgs // self.packages.${system});
+        directory = ./pkgs;
+      };
     };
 }
