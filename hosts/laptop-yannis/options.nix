@@ -71,6 +71,7 @@
       discord.enable = true;
       librewolf.enable = true;
       wallust.enable = true;
+      zoxide.enable = true;
       fastfetch = {
         enable = true;
         shellIntegration = true;
