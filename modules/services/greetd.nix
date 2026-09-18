@@ -57,7 +57,7 @@ in
               };
             };
           };
-          session.command = "${pkgs.hyprland}/bin/start-hyprland";
+          session.command = "${pkgs.uwsm}/bin/uwsm start hyprland-uwsm.desktop";
           secret = {
             mode = "characters";
             characters = "*";

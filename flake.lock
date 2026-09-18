@@ -689,11 +689,11 @@
     "walls": {
       "flake": false,
       "locked": {
-        "lastModified": 1789720988,
-        "narHash": "sha256-K3kgNHdKByVw0QJXc/2irckBWsk656Bg6IxLP4Cd/0A=",
+        "lastModified": 1789727230,
+        "narHash": "sha256-yzJGX2L34OBfUiaJl9hKUB9ga8lHNCCKSxg/+Hh63Lg=",
         "owner": "yannis-e",
         "repo": "walls",
-        "rev": "02f069edc4fed9638c01d2408764526a585e9f0d",
+        "rev": "7a56478a8a3996efcdefa48d49e77f8ba5648d52",
         "type": "github"
       },
       "original": {

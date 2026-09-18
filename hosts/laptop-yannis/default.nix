@@ -8,6 +8,5 @@
     };
     boot.loader.limine.secureBoot.enable = true;
     time.timeZone = "Europe/Berlin";
-    console.keyMap = "de";
   };
 }

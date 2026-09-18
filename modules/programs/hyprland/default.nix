@@ -34,6 +34,11 @@ in
         description = "Use Hyprland package from flake inputs instead of nixpkgs.";
       };
 
+      withUWSM = mkOption {
+        type = types.bool;
+        default = true;
+      };
+
       defaultMonitor = mkOption {
         type = types.str;
         default = "DP-1";
@@ -64,7 +69,7 @@ in
     programs.hyprland = {
       enable = true;
       package = hyprlandSet.hyprland;
-      #portalPackage = hyprlandSet.xdg-desktop-portal-hyprland;
+      withUWSM = cfg.withUWSM;
     };
   };
 }

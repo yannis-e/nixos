@@ -12,7 +12,7 @@
     walls = {
       url = "github:yannis-e/walls";
       flake = false;
-      };
+    };
 
     hyprland = {
       url = "github:hyprwm/Hyprland";

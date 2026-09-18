@@ -2,6 +2,7 @@
   pkgs,
   lib,
   config,
+  self,
   ...
 }:
 let
@@ -14,13 +15,17 @@ in
     hj = {
       packages = with pkgs; [
         wallust
+        self.packages.${pkgs.stdenv.hostPlatform.system}.wall-picker
+        self.packages.${pkgs.stdenv.hostPlatform.system}.random-wall
+        self.packages.${pkgs.stdenv.hostPlatform.system}.wallust-script
       ];
+      
       xdg.config.files = {
         "wallust/templates".source = ./templates;
         "wallust/wallust.toml" = {
           generator = (pkgs.formats.toml { }).generate "wallust.toml";
           value = {
-            check_contrast = true;
+            check_contrast = false;
             backend = "fastresize";
             color_space = "lch";
             templates = {

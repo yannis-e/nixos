@@ -46,7 +46,10 @@
 
     programs = {
       smoothScroll.enable = false;
-      hyprland.enable = true;
+      hyprland = {
+        enable = true;
+        withUWSM = true;
+      };
       ncmpcpp.enable = true;
       fuzzel.enable = true;
       codium.enable = true;
@@ -61,6 +64,7 @@
       zsh.enable = true;
       discord.enable = true;
       librewolf.enable = true;
+      wallust.enable = true;
     };
   };
 }

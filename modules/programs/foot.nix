@@ -35,9 +35,6 @@ in
         mouse = {
           hide-when-typing = true;
         };
-        colors = {
-          alpha = 0.85;
-        };
         tweak.font-monospace-warn = false; # slightly faster startup times
         scrollback.lines = 100000;
       };
