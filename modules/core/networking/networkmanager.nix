@@ -1,0 +1,32 @@
+{
+  lib,
+  config,
+  pkgs,
+  ...
+}:
+let
+  inherit (lib) mkEnableOption mkIf;
+  cfg = config.cfg.core.networkmanager;
+in
+{
+  options.cfg.core.networkmanager = {
+    enable = mkEnableOption "NetworkManager";
+  };
+  config = mkIf cfg.enable {
+    programs.nm-applet.enable = true; # enable the nice lil applet
+    networking = {
+      networkmanager = {
+        enable = true;
+        wifi = {
+          backend = "iwd";
+          powersave = config.cfg.core.isLaptop;
+        };
+        dns = "systemd-resolved";
+        dhcp = "internal";
+      };
+    };
+    users.users.${config.cfg.core.username} = {
+      extraGroups = [ "networkmanager" ];
+    };
+  };
+}
