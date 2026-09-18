@@ -14,6 +14,7 @@ in
     hj = {
       packages = [
         pkgs.mpd
+        pkgs.mpc
       ];
       xdg.config.files."mpd/mpd.conf".text = ''
         music_directory "~/Music"

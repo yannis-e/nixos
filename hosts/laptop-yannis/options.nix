@@ -29,7 +29,12 @@
     services = {
       pipewire = {
         enable = true;
-        rnnoise.enable = true;
+        rnnoise = {
+          enable = true;
+          vadThreshold = 97;
+          vadGracePeriod = 50;
+          retroactiveVadGrace = 0;
+        };
       };
       cliphist.enable = true;
       dunst.enable = true;
@@ -49,6 +54,7 @@
       hyprland = {
         enable = true;
         withUWSM = true;
+        cursor = "Bibata-Original-Ice";
       };
       ncmpcpp.enable = true;
       fuzzel.enable = true;
@@ -65,6 +71,21 @@
       discord.enable = true;
       librewolf.enable = true;
       wallust.enable = true;
+      fastfetch = {
+        enable = true;
+        shellIntegration = true;
+        icon = "snoopy";
+      };
+      bottom.enable = true;
+      mpv.enable = true;
+      prismlauncher.enable = true;
+      thunar.enable = true;
+      steam.enable = true;
+      mangohud.enable = true;
+      proton-ge = {
+        enable = true;
+        nativeWayland = true;
+      };
     };
   };
 }

@@ -18,7 +18,7 @@
       url = "github:hyprwm/Hyprland";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
+    
     KvLibadwaita = {
       url = "github:GabePoel/KvLibadwaita";
       flake = false;

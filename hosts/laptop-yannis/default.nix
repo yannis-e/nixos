@@ -4,6 +4,7 @@
     hj = {
       packages = with pkgs; [
         deluge
+        libnotify
       ];
     };
     boot.loader.limine.secureBoot.enable = true;

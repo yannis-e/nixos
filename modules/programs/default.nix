@@ -10,7 +10,6 @@ in
   };
   config = {
     programs = {
-      # nano is enabled by default. no.
       # cmd-not-found is useless
       #nano.enable = mkDefault false;
       command-not-found.enable = false;

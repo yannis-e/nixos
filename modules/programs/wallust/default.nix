@@ -28,6 +28,7 @@ in
             check_contrast = false;
             backend = "fastresize";
             color_space = "lch";
+            palette = "dark";
             templates = {
               fuzzel = {
                 template = "colors_fuzzel.ini";
@@ -59,6 +60,15 @@ in
               accent = {
                 template = "accent.txt";
                 target = "~/.cache/wallust/accent.txt";
+              };
+              vscode = {
+                template = "vscode.json";
+                target = "~/.cache/wallust/colors.json";
+              };
+
+              vscode2 = {
+                template = "vscode";
+                target = "~/.cache/wallust/colors";
               };
             };
             hooks = {
