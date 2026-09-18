@@ -87,6 +87,10 @@
         enable = true;
         nativeWayland = true;
       };
+      thunderbird = {
+        enable = true;
+        defaultClient = true;
+      };
     };
   };
 }
