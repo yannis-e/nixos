@@ -7,7 +7,7 @@ let
 in
 {
   options.cfg.programs.localsend = {
-    enable = mkEnableOption "localsend";
+    enable = mkEnableOption "LocalSend";
   };
 
   config = mkIf cfg.enable {
@@ -18,24 +18,6 @@ in
     networking.firewall = {
       allowedTCPPorts = [ 53317 ];
       allowedUDPPorts = [ 53317 ];
-    };
-
-    systemd.user.services.localsend = {
-      Unit = {
-        Description = "LocalSend";
-        After = [ "graphical-session.target" ];
-        PartOf = [ "graphical-session.target" ];
-      };
-
-      Service = {
-        ExecStart = "${pkgs.localsend}/bin/localsend --hidden";
-        Restart = "on-failure";
-        RestartSec = 5;
-      };
-
-      Install = {
-        WantedBy = [ "graphical-session.target" ];
-      };
     };
   };
 }
