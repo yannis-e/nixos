@@ -17,6 +17,7 @@ let
     "file://${config.hj.directory}/Videos Videos"
     "file://${config.hj.directory}/Pictures/Screenshots Screenshots"
     "file://${config.hj.directory}/.config/nixos NixOS"
+    "smb://192.168.0.253 NAS"
   ];
 in
 {
