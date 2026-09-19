@@ -36,23 +36,28 @@ in
     i18n.defaultLocale = mkDefault "en_GB.UTF-8";
 
     boot = {
+      plymouth = {
+        enable = true;
+        theme = "bgrt";
+      };
+
+      initrd.verbose = false;
+
       kernelParams = [
-        # we set the font above to a larger one, but the font will still
-        # be small early in boot. This param will set it even earlier.
+        "quiet"
+        "loglevel=3"
+        "systemd.show_status=false"
+        "rd.systemd.show_status=false"
+        "udev.log_level=3"
+        "vt.global_cursor_default=0"
+
         "fbcon=font:TER16x32"
-        # disable watchdog lockup detection, improves performance slightly
+
         "nowatchdog"
-        # disable spectre, meltdown, etc mitigations for performance at
-        # the cost of security. i don't think mossad is after me YET
         "mitigations=off"
-        # enable dynamic epp for laptops. this will change the epp
-        # based on the charging / discharging status.
+
         (mkIf config.cfg.core.isLaptop "amd_dynamic_epp=enable")
       ];
-      # disable hardware watchdog present on my laptop
-      extraModprobeConfig = ''
-        blacklist sp5100_tco
-      '';
     };
   };
 }

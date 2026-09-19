@@ -81,9 +81,13 @@ in
                   protocol: efi
                   path: boot():/EFI/Microsoft/Boot/bootmgfw\.efi
             '';
-          extraConfig = mkIf (config.cfg.core.limine.timeout < 1) ''
-            quiet: yes
-          '';
+          extraConfig = ''
+            mouse: no
+          '' + lib.optionalString
+            (config.cfg.core.limine.timeout < 1)
+            ''
+              quiet: yes
+            '';
         };
       };
     };

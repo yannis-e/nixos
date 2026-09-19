@@ -6,7 +6,7 @@
       isLaptop = true;
       keyLayout = "de";
       limine = {
-        timeout = 3;
+        timeout = 0;
         bootWin = false;
       };
       networkmanager.enable = true;
@@ -68,7 +68,6 @@
         email = "yannis.estermann@outlook.com";
       };
       zsh.enable = true;
-      discord.enable = true;
       librewolf.enable = true;
       wallust.enable = true;
       zoxide.enable = true;
