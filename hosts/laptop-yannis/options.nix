@@ -91,6 +91,7 @@
         enable = true;
         defaultClient = true;
       };
+      localsend.enable = true;
     };
   };
 }
