@@ -27,7 +27,6 @@ writeShellApplication {
       exit 1
     fi
 
-    # apply selected wallpaper
-    wallust-script "$bgdir/$bgfile"
+    
   '';
 }

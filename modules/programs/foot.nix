@@ -1,4 +1,5 @@
 {
+  self,
   lib,
   config,
   pkgs,
@@ -10,15 +11,17 @@ let
 in
 {
   options.cfg.programs.foot.enable = mkEnableOption "foot";
-
   config = mkIf cfg.enable {
     programs.foot = {
       enable = true;
       package = pkgs.symlinkJoin {
         name = "foot";
-        paths = [ pkgs.foot ];
+        paths = [
+          self.packages.${pkgs.stdenv.hostPlatform.system}.foot-transparency
+        ];
 
-        # remove desktop files for server and client, using standalone only
+        # remove foot desktop files for server and client, as
+        # we just use standalone anyway
         postBuild = ''
           unlink $out/share/applications/footclient.desktop
           unlink $out/share/applications/foot-server.desktop
@@ -28,6 +31,7 @@ in
         main = {
           font = "monospace:size=13";
           pad = "6x6";
+          transparent-fullscreen = true; # option added by my fork
         };
         cursor = {
           style = "beam";
@@ -35,11 +39,15 @@ in
         mouse = {
           hide-when-typing = true;
         };
+        colors-dark = {
+          blur = "yes";
+          alpha = 0.9;
+          alpha-mode = "matching";
+        };
         tweak.font-monospace-warn = false; # slightly faster startup times
         scrollback.lines = 100000;
       };
     };
-
     xdg.terminal-exec = {
       enable = true;
       settings.default = [
