@@ -90,6 +90,8 @@
         defaultClient = true;
       };
       localsend.enable = true;
+      waybar.enable = true;
+      nicotine-plus.enable = true;
     };
   };
 }

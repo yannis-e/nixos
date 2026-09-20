@@ -5,6 +5,7 @@
       packages = with pkgs; [
         deluge
         libnotify
+        nicotine-plus
       ];
     };
     boot.loader.limine.secureBoot.enable = true;
