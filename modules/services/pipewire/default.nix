@@ -22,7 +22,7 @@ in
       };
     };
     hj.packages = with pkgs; [
-      #qpwgraph
+      qpwgraph
       #easyeffects
       pwvucontrol
       alsa-utils
@@ -31,6 +31,7 @@ in
     users.users.${config.cfg.core.username}.extraGroups = [
       "audio"
       "pipewire"
+      "plugdev"
     ];
   };
 }

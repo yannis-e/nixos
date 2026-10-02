@@ -29,7 +29,14 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nixcord.url = "github:4evy/nixcord";
+    # nixcord.url = "github:4evy/nixcord";
+
+    dotfiles = {
+      url = "github:yannis-e/dotfiles";
+      flake = false;
+    };
+
+    hytale-launcher.url = "github:JPyke3/hytale-launcher-nix";
   };
 
   outputs =

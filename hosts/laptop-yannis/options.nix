@@ -41,7 +41,7 @@
       mate-polkit.enable = true;
       libvirt.enable = true;
       lact.enable = true;
-      greetd.enable = true;
+      sddm.enable = true;
       mpd = {
         enable = true;
         notification.enable = true;
@@ -92,6 +92,8 @@
       localsend.enable = true;
       waybar.enable = true;
       nicotine-plus.enable = true;
+      platformio.enable = true;
+      emacs.enable = true;
     };
   };
 }

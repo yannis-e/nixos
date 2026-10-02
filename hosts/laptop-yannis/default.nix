@@ -13,18 +13,25 @@
         deluge
         libnotify
         nicotine-plus
-
+        fd
         kicad
         pv
-        vcv-rack
         spotify
         gcc
         gnumake
         python3
         usbutils
-        openocd
+        anki
+        discord
+        kdePackages.francis
+        eclipses.eclipse-java
+        kdePackages.kdenlive
+        (pkgs.writeShellScriptBin "arduino-ide" ''
+          exec ${pkgs.arduino-ide}/bin/arduino-ide --ozone-platform=x11 "$@"
+        '')
 
         self.packages.${pkgs.stdenv.hostPlatform.system}.wall-picker
+        inputs.hytale-launcher.packages.${pkgs.stdenv.hostPlatform.system}.default
       ];
     };
     boot.loader.limine.secureBoot.enable = true;

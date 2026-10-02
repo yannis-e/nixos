@@ -26,21 +26,19 @@ writeShellApplication {
 
     bgfile=$(
       find "$bgdir" -maxdepth 1 -type f -printf "%f\n" 2>/dev/null |
-        fzf --height 100% \
-          --preview "img2sixel --width 1200 --height auto -q low \"$bgdir/{}\" 2>/dev/null" \
+        fzf \
+          --height 100% \
+          --preview "img2sixel -w 80 -q low \"$bgdir/{}\" 2>/dev/null" \
           --preview-window=right:75%:wrap
     )
 
-    # Check if wallpaper was selected
     if [ -z "$bgfile" ]; then
       echo "No wallpaper selected..."
       exit 1
     fi
 
-    # Update wallpaper symlink
     ln -sf "$bgdir/$bgfile" "$wallpaper"
 
-    # Reload wallpaper in Hyprpaper
     hyprctl hyprpaper wallpaper ",$wallpaper"
   '';
 }

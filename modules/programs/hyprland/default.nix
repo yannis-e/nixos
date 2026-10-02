@@ -71,5 +71,9 @@ in
       package = hyprlandSet.hyprland;
       withUWSM = cfg.withUWSM;
     };
+    environment.systemPackages = [
+      pkgs.grim
+      pkgs.slurp
+    ];
   };
 }

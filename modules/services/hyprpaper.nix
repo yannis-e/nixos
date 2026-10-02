@@ -27,10 +27,9 @@ in
 
       systemd.services.hyprpaper = {
         description = "Hyprpaper wallpaper manager";
-
         after = [ "graphical-session.target" ];
         wantedBy = [ "graphical-session.target" ];
-
+        
         serviceConfig = {
           ExecStart = "${getExe pkgs.hyprpaper}";
           Restart = "on-failure";
@@ -40,7 +39,7 @@ in
           config.hj.xdg.config.files."hypr/hyprpaper.conf".source
           pkgs.hyprpaper
         ];
-      };
+      }; 
     };
   };
 }

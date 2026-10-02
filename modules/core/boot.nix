@@ -57,6 +57,7 @@ in
         "mitigations=off"
 
         (mkIf config.cfg.core.isLaptop "amd_dynamic_epp=enable")
+        (mkIf config.cfg.hardware.nvidia.enable "nvidia_drm.fbdev=1")
       ];
     };
   };

@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ lib, pkgs, ... }:
 let
   inherit (lib) mkDefault mkEnableOption;
 in
@@ -8,13 +8,13 @@ in
       default = true;
     };
   };
+
   config = {
     programs = {
-      # cmd-not-found is useless
-      #nano.enable = mkDefault false;
       command-not-found.enable = false;
     };
-    # also dont install any of the default packages.
-    environment.defaultPackages = mkDefault [ ];
+
+    # Standardpakete nicht entfernen
+    # environment.defaultPackages = mkDefault [ ];
   };
 }
