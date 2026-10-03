@@ -7,7 +7,7 @@ let
 in
 {
   options.cfg.hardware.nvidia = {
-    enable = mkEnableOption "nvidia";
+    enable = mkEnableOption "NVIDIA";
 
     prime = {
       enable = mkEnableOption "NVIDIA PRIME hybrid graphics offloading";
@@ -25,6 +25,7 @@ in
   };
 
   config = mkIf cfg.enable {
+    # Only enable if you actually use CUDA/AI workloads.
     nixpkgs.config.cudaSupport = true;
 
     services.xserver.videoDrivers = [ "nvidia" ];
@@ -39,6 +40,7 @@ in
         open = true;
         gsp.enable = true;
 
+        # Important for laptop power saving.
         powerManagement = {
           enable = true;
           finegrained = cfg.prime.enable;
@@ -66,49 +68,42 @@ in
       };
     };
 
-    environment = {
-      sessionVariables = {
-        __GL_VRR_ALLOWED = "1";
+    environment.sessionVariables = {
+      # VRR
+      __GL_VRR_ALLOWED = "1";
 
-        __GL_SHADER_DISK_CACHE = "1";
-        __GL_SHADER_DISK_CACHE_SIZE = 12 * 1024 * 1024 * 1024;
-        __GL_SHADER_DISK_CACHE_PATH = "$XDG_CACHE_HOME/nv";
+      # Shader cache
+      __GL_SHADER_DISK_CACHE = "1";
+      __GL_SHADER_DISK_CACHE_SIZE = 2 * 1024 * 1024 * 1024;
+      __GL_SHADER_DISK_CACHE_PATH = "$XDG_CACHE_HOME/nv";
 
-        CUDA_CACHE_PATH = "$XDG_CACHE_HOME/nv";
-        CUDA_DISABLE_PERF_BOOST = "1";
+      CUDA_CACHE_PATH = "$XDG_CACHE_HOME/nv";
 
-        DXVK_NVAPI_D3D12_NV_SHADER_EXTN = "1";
-        VKD3D_CONFIG = "descriptor_heap";
-      };
-
-      etc = {
-        "nvidia/nvidia-application-profiles-rc.d/50-vram-alloc-fixes.json".text =
-          builtins.toJSON {
-            rules = [
-              {
-                pattern = [];
-                profile = "No VidMem Reuse";
-              }
-            ];
-          };
-
-        "nvidia/nvidia-application-profiles-rc.d/51-dont-nerf-cuda-perf.json".text =
-          builtins.toJSON {
-            rules = [
-              {
-                pattern = [];
-                profile = "CudaNoStablePerfLimit";
-              }
-            ];
-          };
-      };
+      # DXVK / VKD3D
+      DXVK_NVAPI_D3D12_NV_SHADER_EXTN = "1";
+      VKD3D_CONFIG = "descriptor_heap";
     };
 
-    boot.initrd.kernelModules = [
-      "nvidia"
-      "nvidia_modeset"
-      "nvidia_uvm"
-      "nvidia_drm"
-    ];
+    environment.etc = {
+      "nvidia/nvidia-application-profiles-rc.d/50-vram-alloc-fixes.json".text =
+        builtins.toJSON {
+          rules = [
+            {
+              pattern = [];
+              profile = "No VidMem Reuse";
+            }
+          ];
+        };
+
+      "nvidia/nvidia-application-profiles-rc.d/51-dont-nerf-cuda-perf.json".text =
+        builtins.toJSON {
+          rules = [
+            {
+              pattern = [];
+              profile = "CudaNoStablePerfLimit";
+            }
+          ];
+        };
+    };
   };
 }

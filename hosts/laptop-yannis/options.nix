@@ -47,6 +47,7 @@
         notification.enable = true;
       };
       hyprpaper.enable = true;
+      batteryNotifications = true;
     };
 
     programs = {
@@ -90,7 +91,7 @@
         defaultClient = true;
       };
       localsend.enable = true;
-      waybar.enable = true;
+      waybar.enable = false;
       nicotine-plus.enable = true;
       platformio.enable = true;
       emacs.enable = true;
