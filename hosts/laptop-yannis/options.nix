@@ -47,7 +47,7 @@
         notification.enable = true;
       };
       hyprpaper.enable = true;
-      batteryNotifications = true;
+      batteryNotifications.enable = true;
     };
 
     programs = {

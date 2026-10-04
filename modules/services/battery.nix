@@ -16,11 +16,9 @@ in
     ];
 
     systemd.user.services.battery-notify = {
-      Unit = {
-        Description = "Battery level notification";
-      };
+      description = "Battery level notification";
 
-      Service = {
+      serviceConfig = {
         Type = "oneshot";
 
         ExecStart = pkgs.writeShellScript "battery-notify" ''
@@ -56,25 +54,20 @@ in
           notify-send \
             -u normal \
             -i battery \
-            "Battery: $capacity%" \
-            "Please connect the charger."
+            "Battery: $capacity%"
         '';
       };
     };
 
     systemd.user.timers.battery-notify = {
-      Unit = {
-        Description = "Check battery level";
-      };
+      description = "Check battery level";
 
-      Timer = {
+      timerConfig = {
         OnBootSec = "1min";
         OnUnitActiveSec = "1min";
       };
 
-      Install = {
-        WantedBy = [ "timers.target" ];
-      };
+      wantedBy = [ "timers.target" ];
     };
   };
 }
