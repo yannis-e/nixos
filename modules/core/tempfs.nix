@@ -1,6 +1,25 @@
+{ config, lib, ... }:
+
+let
+  inherit (lib) mkEnableOption mkIf mkOption types;
+
+  cfg = config.cfg.core.tmpfs;
+in
 {
-  boot.tmp = {
-    useTmpfs = true; # /tmp is not on tmpfs by default (why??)
-    tmpfsSize = "50%"; # allow it to use x% of your RAM
+  options.cfg.core.tmpfs = {
+    enable = mkEnableOption "tmpfs for /tmp";
+
+    size = mkOption {
+      type = types.str;
+      default = "50%";
+      description = "Maximum size of /tmp as a percentage or size.";
+    };
+  };
+
+  config = mkIf cfg.enable {
+    boot.tmp = {
+      useTmpfs = true;
+      tmpfsSize = cfg.size;
+    };
   };
 }

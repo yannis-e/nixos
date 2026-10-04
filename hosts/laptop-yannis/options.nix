@@ -11,7 +11,10 @@
       };
       networkmanager.enable = true;
       zram.enable = false;
-
+      tmpfs = {
+        enable = true;
+        size = "25%";
+      };
     };
 
     hardware = {
