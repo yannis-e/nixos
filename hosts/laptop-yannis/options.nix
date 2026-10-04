@@ -10,6 +10,8 @@
         bootWin = false;
       };
       networkmanager.enable = true;
+      zram.enable = false;
+
     };
 
     hardware = {
