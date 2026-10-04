@@ -26,6 +26,7 @@
       };
       bluetooth.enable = true;
       scanning.enable = true;
+      opentabletdriver.enable = true;
     };
 
     services = {
