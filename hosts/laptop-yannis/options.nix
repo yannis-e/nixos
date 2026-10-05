@@ -80,7 +80,6 @@
       fastfetch = {
         enable = true;
         shellIntegration = true;
-        icon = "snoopy";
       };
       bottom.enable = true;
       mpv.enable = true;
