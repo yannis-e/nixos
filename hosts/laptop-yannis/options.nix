@@ -79,7 +79,7 @@
       zoxide.enable = true;
       fastfetch = {
         enable = true;
-        shellIntegration = true;
+        shellIntegration = false;
       };
       bottom.enable = true;
       mpv.enable = true;
