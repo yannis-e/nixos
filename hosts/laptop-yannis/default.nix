@@ -22,6 +22,7 @@
         python3
         usbutils
         anki
+        calibre
         discord
         kdePackages.francis
         eclipses.eclipse-java

@@ -41,6 +41,8 @@ in
           libreoffice
           hunspell
           hunspellDicts.en_GB-ise
+          texliveFull
+          zathura
 
           nix-tree
           npins
