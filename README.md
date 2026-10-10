@@ -25,6 +25,8 @@ Hosts:
 
 </details>
 
+I have [many things to improve](./TODO.md) in the future.
+
 ## Thank you
 - [fxzzi's NixOhEss](https://github.com/fxzzi/NixOhEss) — the nvf configuration. 
 
