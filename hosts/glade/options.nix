@@ -81,6 +81,7 @@
         withUWSM = true;
         cursor = "Bibata-Original-Ice";
       };
+      hyprlock.enable = true;
 
       ncmpcpp.enable = true;
       fuzzel.enable = true;
