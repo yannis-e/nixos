@@ -6,12 +6,13 @@
       </div>
 </div>
 
+
 Komorebi (木漏れ日) is the Japanese word for sunlight filtering through the leaves.
 
 Personal NixOS configuration focused on simplicity, modularity, and a distraction-free workspace.
 
-[!NOTE]
-This configuration is a personal work in progress. It reflects my preferences and hardware, so it may not work out of the box on your system. Feel free to explore, learn from, and adapt parts of it in accordance with the license.
+> [!CAUTION]
+> This configuration is a personal work in progress. It reflects my preferences and hardware, so it may not work out of the box on your system. Feel free to explore, learn from, and adapt parts of it in accordance with the license.
 
 Hosts:
 - glade ~ My laptop; an HP Victus 15 with an AMD Ryzen 7 7000-series CPU, an NVIDIA RTX 4050 Laptop GPU, 16 GiB of RAM, and an NVMe SSD.
