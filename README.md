@@ -23,7 +23,8 @@ I have [many things I want to improve](./TODO.md) in the future.
 </details>
 
 ## Thank you
-- [fxzzi's NixOhEss](https://github.com/fxzzi/NixOhEss) — the nvf configuration. 
+- [fxzzi's NixOhEss](https://github.com/fxzzi/NixOhEss) — the nvf configuration.
+- [orangeci](https://github.com/orangci) - took some inspiration on [his dotfiles](https://github.com/orangci/dots)
 
 ## License
 - [License: GNU AGPLv3](./LICENSE)
