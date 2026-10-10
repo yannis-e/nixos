@@ -37,6 +37,8 @@
     };
 
     hytale-launcher.url = "github:JPyke3/hytale-launcher-nix";
+    
+    sops-nix.url = "github:Mic92/sops-nix";
   };
 
   outputs =

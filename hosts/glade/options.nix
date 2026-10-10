@@ -38,6 +38,10 @@
       opentabletdriver.enable = true;
     };
 
+    security = {
+      sops.enable = true;
+    };
+
     services = {
       pipewire = {
         enable = true;
@@ -49,6 +53,8 @@
           retroactiveVadGrace = 0;
         };
       };
+
+      qnap.enable = true;
 
       cliphist.enable = true;
       dunst.enable = true;

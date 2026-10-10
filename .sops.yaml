@@ -1,0 +1,10 @@
+keys:
+  - &master age1q0clfe09ntdnrrlfn2zlqq2mywut7wvhl94tkyhx3l5fx9q9qfsqap8v9c
+  - &komorebi age163ujh9py63vf4rjed230x7xnxwtuxll6h2x8k04qc39c398z9grsq8n0wj
+
+creation_rules:
+  - path_regex: secrets/secrets.yaml$
+    key_groups:
+      - age:
+          - *master
+          - *komorebi

@@ -30,6 +30,10 @@ in
         enable = true;
         # These are available no matter the host.
         packages = with pkgs; [
+
+          sops
+          age
+
           wget
           ffmpeg
           jq

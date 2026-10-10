@@ -9,15 +9,18 @@ let
     mkEnableOption
     mkOption
     mkIf
+    optionals
     concatMapStrings
     ;
+    
   cfg = config.cfg.programs.thunar;
   bookmarks = [
     "file://${config.hj.directory}/Downloads Downloads"
     "file://${config.hj.directory}/Videos Videos"
     "file://${config.hj.directory}/Pictures/Screenshots Screenshots"
     "file://${config.hj.directory}/.config/nixos NixOS"
-    "smb://192.168.0.253 NAS"
+  ] ++ optionals config.cfg.services.qnap.enable [
+    "file:///mnt/qnap QNAP"
   ];
 in
 {
