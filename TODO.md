@@ -4,6 +4,4 @@
 - Better Hyprland configuration
 - simple clipboard menu
 - better  screenshot workflow
-- secrets management 
-- auto mounting nas drive
 - configure vm 
