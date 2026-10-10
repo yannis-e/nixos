@@ -69,6 +69,7 @@
       };
 
       hyprpaper.enable = true;
+      hyprsunset.enable = true;
       batteryNotifications.enable = true;
     };
 
