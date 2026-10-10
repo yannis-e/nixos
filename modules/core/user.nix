@@ -46,6 +46,8 @@ in
 
           nix-tree
           npins
+          gnupg
+          krita
         ];
         xdg = {
           config.files = {

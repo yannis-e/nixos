@@ -1,0 +1,9 @@
+- Add a better Bar setup
+- make a simple/modular menu script with fuzzle 
+- Add a reliable system backup and recovery strategy
+- Better Hyprland configuration
+- simple clipboard menu
+- better  screenshot workflow
+- secrets management 
+- auto mounting nas drive
+- configure vm 

@@ -6,6 +6,10 @@
 }:
 {
   config = {
+    programs.gnupg.agent = {
+      enable = true;
+      pinentryPackage = pkgs.pinentry-qt;
+    };
     environment.sessionVariables.QT_QPA_PLATFORMTHEME = "qt6ct";
     hj = {
       xdg.config.files = {

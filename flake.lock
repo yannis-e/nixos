@@ -52,11 +52,11 @@
     "dotfiles": {
       "flake": false,
       "locked": {
-        "lastModified": 1791174091,
-        "narHash": "sha256-ZwHpT+vlY0IUZ/L9DuwecWbXhE8dFb4QFIU6byHbgyM=",
+        "lastModified": 1791401282,
+        "narHash": "sha256-z3eZH7+U+drUeEIhPrcaMjCObOP9mEoPcPpzwtGP5VQ=",
         "owner": "yannis-e",
         "repo": "dotfiles",
-        "rev": "70916a9f896a186dd2f042d0288bf3455264eb6d",
+        "rev": "0e6e2c3efe39a50669a33909af4fe6495e84e6e3",
         "type": "github"
       },
       "original": {
