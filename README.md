@@ -1,10 +1,6 @@
 <div align="center">
       <h1>komorebi</h1>
       <p><em>木漏れ日</em> ~ sunlight filtering through the leaves.</p>
-      <div>
-         <a = href="https://nixos.org"><img src="https://img.shields.io/badge/NixOS-Stable-blue?style=for-the-badge&logo=NixOS&logoColor=white&label=NixOS&labelColor=303446&color=91D7E3"></a>
-         <a href="https://github.com/orangci/dots/blob/main/LICENSE"><img src="https://img.shields.io/static/v1.svg?style=for-the-badge&label=License&message=AGPL3&colorA=313244&colorB=F5A97F&logo=unlicense&logoColor=F5A97F&"/></a>
-      </div>
 </div>
 
 Personal NixOS configuration focused on simplicity, modularity, and a distraction-free workspace.
@@ -15,6 +11,8 @@ Personal NixOS configuration focused on simplicity, modularity, and a distractio
 Hosts:
 - glade ~ My laptop; an HP Victus 15 with an AMD Ryzen 7 7000-series CPU, an NVIDIA RTX 4050 Laptop GPU, 16 GiB of RAM, and an NVMe SSD.
 
+I have [many things I want to improve](./TODO.md) in the future.
+
 ## Screenshots
 <details>
 <summary>Click to expand.</summary> 
@@ -23,8 +21,6 @@ Hosts:
 ![screenshot]()
 
 </details>
-
-I have [many things to improve](./TODO.md) in the future.
 
 ## Thank you
 - [fxzzi's NixOhEss](https://github.com/fxzzi/NixOhEss) — the nvf configuration. 
